@@ -1,4 +1,7 @@
-# Telefonia RAG local (sin LLM generativo)
+# RAG local (sin LLM generativo)
+
+Este proyecto implementa un **RAG local** sobre la base documental en `docs/Wiki`: indexa contenido, recupera contexto relevante y responde de forma **extractiva** con citas, sin usar un LLM generativo externo.
+La “AI local” del sistema se basa en **modelos de embeddings y reranking ejecutados en local** (Hugging Face/Sentence-Transformers), combinados con búsqueda léxica en PostgreSQL para mejorar precisión.
 
 RAG local sobre documentos `docs/Wiki` con:
 - **FastAPI** (API)
@@ -38,7 +41,7 @@ La respuesta no usa un LLM generativo: se arma de forma extractiva con los chunk
    ```bash
    curl -X POST http://localhost:8000/chat \
      -H "Content-Type: application/json" \
-     -d '{"content":"¿Cómo configurar troncales en GCloud?"}'
+     -d '{"content":"¿Cómo configurar Asterisk?"}'
    ```
 
 ## Variables de entorno
